@@ -13,16 +13,22 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            justify-content: center;
+            align-items: center;
         }
         header {
             background-color: #0078d7;
             color: white;
             padding: 1rem;
-        }
-        iframe {
-            flex: 1;
             width: 100%;
-            border: none;
+        }
+        .content {
+            padding: 2rem;
+        }
+        a {
+            color: #0078d7;
+            text-decoration: none;
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -30,6 +36,9 @@
     <header>
         <h1>Welcome to VNPT AI</h1>
     </header>
-    <iframe src="https://vnptai.io" title="VNPT AI"></iframe>
+    <div class="content">
+        <p>Click the link below to visit the VNPT AI website:</p>
+        <a href="https://vnptai.io" target="_blank">Visit VNPT AI</a>
+    </div>
 </body>
 </html>
