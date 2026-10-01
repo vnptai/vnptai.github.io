@@ -141,6 +141,24 @@
   }
   .lead { margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.6vw, 1.16rem); color: var(--ink-2); text-wrap: pretty; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  /* Hero top: copy on the left, product ecosystem visual on the right */
+  .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .hero-copy .lead { max-width: 54ch; }
+  .hero-visual { margin: 0; }
+  .hero-visual-btn { display: block; width: 100%; padding: 0; border: 0; border-radius: 16px; background: none; cursor: zoom-in; }
+  .hero-visual-btn img { display: block; width: 100%; height: auto; transition: transform .3s; }
+  .hero-visual-btn:hover img { transform: scale(1.015); }
+  .hero-visual figcaption { margin-top: 10px; text-align: center; font-size: .78rem; color: var(--ink-3); }
+  @media (max-width: 960px) { .hero-top { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+  /* Full-size view of the product visual */
+  .lightbox { width: min(96vw, 1600px); max-width: none; max-height: 92vh; padding: 0; border: 0; border-radius: 14px; background: #fff; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); overflow: auto; }
+  .lightbox::backdrop { background: rgba(10, 12, 16, .72); }
+  .lightbox img { display: block; width: 100%; height: auto; }
+  .lightbox-close {
+    position: sticky; top: 10px; float: right; margin: 10px 10px -46px 0; z-index: 1;
+    width: 36px; height: 36px; border-radius: 999px; border: 1px solid #E6E1D6; background: #fff; color: #1A1814;
+    font-size: 22px; line-height: 1; cursor: pointer;
+  }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
     height: 44px; padding: 0 18px; border-radius: 10px;
@@ -296,6 +314,7 @@
     html { scroll-behavior: auto; }
     .card, .card.rise, .cta svg { animation: none; transition: none; }
     .card:hover { transform: none; }
+    .hero-visual-btn img { transition: none; }
   }
 </style>
 </head>
@@ -327,6 +346,8 @@
 <main>
   <section class="hero">
     <div class="wrap hero-inner">
+      <div class="hero-top">
+      <div class="hero-copy">
       <p class="eyebrow" data-i18n="eyebrow">VNPT AI · Nghiên cứu &amp; Mở</p>
       <h1 data-i18n="heroTitle">Nghiên cứu mở từ VNPT AI</h1>
       <p class="lead" data-i18n="heroLead">Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế đến giao thông thông minh.</p>
@@ -335,6 +356,19 @@
           <span data-i18n="ctaExplore">Khám phá dự án</span>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
         </a>
+      </div>
+      </div>
+      <figure class="hero-visual">
+        <button type="button" class="hero-visual-btn" id="products-open" data-i18n-aria="productsZoom" aria-label="Phóng to sơ đồ sản phẩm">
+          <img src="assets/products/vnptai-products-vi-1200.webp"
+               srcset="assets/products/vnptai-products-vi-1200.webp 1200w, assets/products/vnptai-products-vi-2400.webp 2400w"
+               sizes="(max-width: 960px) 92vw, 540px" width="1200" height="513"
+               data-src-tpl="assets/products/vnptai-products-{lang}-1200.webp"
+               data-srcset-tpl="assets/products/vnptai-products-{lang}-1200.webp 1200w, assets/products/vnptai-products-{lang}-2400.webp 2400w"
+               data-i18n-alt="productsAlt" alt="Hệ sinh thái sản phẩm VNPT GenAI" decoding="async" fetchpriority="high">
+        </button>
+        <figcaption data-i18n="productsCaption">Hệ sinh thái sản phẩm VNPT GenAI · bấm để phóng to</figcaption>
+      </figure>
       </div>
       <dl class="stats" id="stats">
         <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">16</dd></div>
@@ -407,6 +441,10 @@
       </div>
     </div>
   </section>
+  <dialog class="lightbox" id="products-dialog" data-i18n-aria="productsAlt" aria-label="Hệ sinh thái sản phẩm VNPT GenAI">
+    <button type="button" class="lightbox-close" id="products-close" data-i18n-aria="close" aria-label="Đóng">×</button>
+    <img id="products-full" alt="" width="2400" height="1025">
+  </dialog>
 </main>
 
 <footer class="site-foot">
@@ -787,6 +825,10 @@
       heroTitle: 'Nghiên cứu mở từ VNPT AI',
       heroLead: 'Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế đến giao thông thông minh.',
       ctaExplore: 'Khám phá dự án',
+      productsAlt: 'Hệ sinh thái sản phẩm VNPT GenAI',
+      productsCaption: 'Hệ sinh thái sản phẩm VNPT GenAI · bấm để phóng to',
+      productsZoom: 'Phóng to sơ đồ sản phẩm',
+      close: 'Đóng',
       partnersTitle: 'Đơn vị hợp tác nghiên cứu',
       pHUST: 'Đại học Bách khoa Hà Nội',
       pNEU: 'Đại học Kinh tế Quốc dân',
@@ -828,6 +870,10 @@
       heroTitle: 'Open research from VNPT AI',
       heroLead: 'Code, datasets and project pages behind our published research and award-winning AI City Challenge solutions — spanning speech processing, language and LLMs, medical imaging and intelligent transportation.',
       ctaExplore: 'Explore projects',
+      productsAlt: 'VNPT GenAI product ecosystem',
+      productsCaption: 'VNPT GenAI product ecosystem · click to enlarge',
+      productsZoom: 'Enlarge the product diagram',
+      close: 'Close',
       partnersTitle: 'Research partners',
       pHUST: 'Hanoi University of Science and Technology',
       pNEU: 'National Economics University',
@@ -1005,6 +1051,14 @@
       const v = L[el.getAttribute('data-i18n-aria')];
       if (typeof v === 'string') el.setAttribute('aria-label', v);
     });
+    document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+      const v = L[el.getAttribute('data-i18n-alt')];
+      if (typeof v === 'string') el.setAttribute('alt', v);
+    });
+    document.querySelectorAll('img[data-src-tpl]').forEach((img) => {
+      img.srcset = img.dataset.srcsetTpl.replaceAll('{lang}', lang);
+      img.src = img.dataset.srcTpl.replaceAll('{lang}', lang);
+    });
     document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     if (persist) store.set(LANG_KEY, lang);
   }
@@ -1087,6 +1141,20 @@
     renderFilters();
     renderGrid(true);
   });
+
+  /* ---------- Product visual lightbox ---------- */
+  const dlg = $('products-dialog');
+  if (dlg && typeof dlg.showModal === 'function') {
+    $('products-open').addEventListener('click', () => {
+      $('products-full').src = `assets/products/vnptai-products-${state.lang}-2400.webp`;
+      $('products-full').alt = I18N[state.lang].productsAlt;
+      dlg.showModal();
+    });
+    $('products-close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  } else if ($('products-open')) {
+    $('products-open').addEventListener('click', () => { window.open(`assets/products/vnptai-products-${state.lang}-2400.webp`, '_blank', 'noopener'); });
+  }
 
   /* ---------- Init ---------- */
   $('year').textContent = new Date().getFullYear();
