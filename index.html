@@ -597,6 +597,27 @@
       stars: 0, forks: 0,
     },
     {
+      name: 'EMNLP-2025-O_O-VC',
+      areas: ['speech'], kind: 'paper', year: 2025,
+      venue: 'EMNLP 2025', note: 'Suzhou',
+      title: {
+        vi: 'O_O-VC: Căn chỉnh một–một dựa trên dữ liệu tổng hợp cho chuyển đổi giọng nói bất kỳ-sang-bất kỳ',
+        en: 'O_O-VC: Synthetic Data-Driven One-to-One Alignment for Any-to-Any Voice Conversion',
+      },
+      summary: {
+        vi: 'Dùng TTS nhiều người nói sinh các cặp audio cùng nội dung khác giọng, căn chỉnh một–một theo từng khung, để mô hình học ánh xạ trực tiếp nguồn sang đích thay vì tách đặc trưng rồi tái tạo.',
+        en: 'A multispeaker TTS generates frame-aligned pairs that share content but differ in speaker, letting the model learn a direct source-to-target mapping instead of disentangling and reconstructing.',
+      },
+      metrics: [
+        { v: { vi: '86,70', en: '86.70' }, l: 'SECS' },
+        { v: { vi: '1,74%', en: '1.74%' }, l: { vi: 'WER · giảm 16,35% tương đối', en: 'WER · 16.35% relative drop' } },
+        { v: { vi: '3,45', en: '3.45' }, l: 'B-MOS' },
+      ],
+      page: PAGES + 'EMNLP-2025-O_O-VC/',
+      links: [{ type: 'paper', href: 'https://arxiv.org/abs/2510.09061', label: 'arXiv' }],
+      stars: 0, forks: 0,
+    },
+    {
       name: 'ThyroidXL',
       areas: ['medical'], kind: 'paper',
       venue: 'MICCAI 2025',
@@ -644,6 +665,27 @@
         en: 'Adapts a LLaVA-based vision-language model to the traffic domain to describe pedestrian–vehicle events and answer safety questions on the WTS and BDD_PC_5k video datasets.',
       },
       license: 'Apache-2.0',
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'ICASSP-2025-KD-VC',
+      areas: ['speech'], kind: 'paper', year: 2025,
+      venue: 'IEEE ICASSP 2025', note: 'Hyderabad',
+      title: {
+        vi: 'Chuyển đổi giọng nói cho ngôn ngữ ít tài nguyên bằng chuyển giao tri thức và huấn luyện đối kháng miền',
+        en: 'Voice Conversion for Low-Resource Languages via Knowledge Transfer and Domain-Adversarial Training',
+      },
+      summary: {
+        vi: 'KTVC — mượn mô hình xác thực người nói và ASR tiếng Anh đã huấn luyện sẵn để tách giọng khỏi nội dung, cho phép xây mô hình chuyển đổi giọng nói tiếng Việt mà không cần văn bản hay nhãn người nói.',
+        en: 'KTVC — borrows pretrained English speaker-verification and ASR models to separate speaker identity from content, enabling a Vietnamese voice conversion model without transcripts or speaker labels.',
+      },
+      metrics: [
+        { v: { vi: '61,35', en: '61.35' }, l: { vi: 'O-SIM · so với 56,47', en: 'O-SIM · vs. 56.47' } },
+        { v: { vi: '3,62', en: '3.62' }, l: { vi: 'MOS · so với 3,41', en: 'MOS · vs. 3.41' } },
+        { v: { vi: '64 giờ', en: '64h' }, l: { vi: 'bộ dữ liệu mới · 97 người nói', en: 'new corpus · 97 speakers' } },
+      ],
+      page: PAGES + 'ICASSP-2025-KD-VC/',
+      links: [{ type: 'paper', href: 'https://doi.org/10.1109/ICASSP49660.2025.10889083', label: 'IEEE Xplore' }],
       stars: 0, forks: 0,
     },
     {
