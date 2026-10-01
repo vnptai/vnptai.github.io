@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VNPT AI — Nghiên cứu &amp; Mã nguồn mở</title>
-<meta name="description" content="Tổng hợp các dự án nghiên cứu, bộ dữ liệu và mã nguồn mở của VNPT AI: xử lý tiếng nói, ảnh y tế và giao thông thông minh.">
+<meta name="description" content="Tổng hợp các dự án nghiên cứu, bộ dữ liệu và mã nguồn mở của VNPT AI: xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế và giao thông thông minh.">
 <meta name="theme-color" content="#005BAA">
 <link rel="canonical" href="https://vnptai.github.io/">
 <meta property="og:type" content="website">
@@ -36,6 +36,7 @@
     --a-medical: #19766F;  --a-medical-soft: #E1F2EF;
     --a-traffic: #B0580A;  --a-traffic-soft: #FBEBD9;
     --a-vlm: #6A4CC0;      --a-vlm-soft: #EEE9FB;
+    --a-llm: #B0306A;      --a-llm-soft: #FBE7F0;
     --a-other: #57524A;    --a-other-soft: #EFECE6;
     --shadow: 0 1px 2px rgba(26, 24, 20, .04), 0 12px 32px -16px rgba(26, 24, 20, .18);
     --radius: 14px;
@@ -64,6 +65,7 @@
       --a-medical: #5BC0B6;  --a-medical-soft: #122F2C;
       --a-traffic: #E9A15A;  --a-traffic-soft: #33230F;
       --a-vlm: #A994EE;      --a-vlm-soft: #241E3A;
+      --a-llm: #EC8AB6;      --a-llm-soft: #3A1A2A;
       --a-other: #B3AEA5;    --a-other-soft: #25282C;
       --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -16px rgba(0, 0, 0, .6);
       color-scheme: dark;
@@ -180,6 +182,7 @@
   .area-medical { --c: var(--a-medical); --c-soft: var(--a-medical-soft); }
   .area-traffic { --c: var(--a-traffic); --c-soft: var(--a-traffic-soft); }
   .area-vlm     { --c: var(--a-vlm);     --c-soft: var(--a-vlm-soft); }
+  .area-llm     { --c: var(--a-llm);     --c-soft: var(--a-llm-soft); }
   .area-other   { --c: var(--a-other);   --c-soft: var(--a-other-soft); }
 
   .card {
@@ -300,7 +303,7 @@
     <div class="wrap hero-inner">
       <p class="eyebrow" data-i18n="eyebrow">VNPT AI · Nghiên cứu &amp; Mã nguồn mở</p>
       <h1 data-i18n="heroTitle">Nghiên cứu mở từ VNPT AI</h1>
-      <p class="lead" data-i18n="heroLead">Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ảnh y tế đến giao thông thông minh.</p>
+      <p class="lead" data-i18n="heroLead">Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế đến giao thông thông minh.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#projects">
           <span data-i18n="ctaExplore">Khám phá dự án</span>
@@ -310,7 +313,7 @@
       <dl class="stats" id="stats">
         <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">7</dd></div>
         <div class="stat"><dt data-i18n="statTop1">giải nhất AI City Challenge</dt><dd id="stat-top1">2</dd></div>
-        <div class="stat"><dt data-i18n="statPapers">bài báo tại hội nghị quốc tế</dt><dd id="stat-papers">2</dd></div>
+        <div class="stat"><dt data-i18n="statPapers">công bố quốc tế năm 2026</dt><dd id="stat-papers">6</dd></div>
         <div class="stat"><dt data-i18n="statStars">lượt gắn sao trên GitHub</dt><dd id="stat-stars">27</dd></div>
       </dl>
     </div>
@@ -379,6 +382,7 @@
     medical: { vi: 'Ảnh y tế',               en: 'Medical imaging' },
     traffic: { vi: 'Giao thông thông minh',  en: 'Intelligent transportation' },
     vlm:     { vi: 'Thị giác – ngôn ngữ',    en: 'Vision–language' },
+    llm:     { vi: 'Ngôn ngữ & LLM',         en: 'Language & LLMs' },
     other:   { vi: 'Khác',                   en: 'Other' },
   };
 
@@ -386,7 +390,7 @@
   const REPOS = [
     {
       name: 'ICASSP2026-MDD',
-      areas: ['speech'], kind: 'paper',
+      areas: ['speech'], kind: 'paper', year: 2026,
       venue: 'IEEE ICASSP 2026', note: 'Oral',
       title: {
         vi: 'Phát hiện và chẩn đoán lỗi phát âm không cần huấn luyện mô hình: Tiếp cận dựa trên truy xuất',
@@ -403,6 +407,122 @@
       ],
       page: PAGES + 'ICASSP2026-MDD/',
       links: [{ type: 'paper', href: 'https://arxiv.org/abs/2511.20107', label: 'arXiv' }],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'INTERSPEECH2026-MDD-LSSG',
+      areas: ['speech'], kind: 'paper', year: 2026,
+      venue: 'INTERSPEECH 2026', note: 'Sydney',
+      title: {
+        vi: 'Phát hiện và chẩn đoán lỗi phát âm theo miền dựa trên đồ thị thống kê riêng theo ngôn ngữ',
+        en: 'Domain-Aware Mispronunciation Detection and Diagnosis Using Language-Specific Statistical Graphs',
+      },
+      summary: {
+        vi: 'MDD-LSSG — học mẫu nhầm lẫn âm vị của từng tiếng mẹ đẻ dưới dạng đồ thị thống kê có hướng, mã hóa bằng GCN và kết hợp với Wav2Vec2 qua cross-attention.',
+        en: 'MDD-LSSG — learns the phoneme confusion patterns of each native language as directed statistical graphs, encoded by a GCN and fused with Wav2Vec2 through cross-attention.',
+      },
+      metrics: [
+        { v: { vi: '59,52%', en: '59.52%' }, l: 'F1-score' },
+        { v: { vi: '+1,28', en: '+1.28' }, l: { vi: 'F1 so với đồ thị phân loại', en: 'F1 over categorical graph' } },
+        { v: '6', l: { vi: 'đồ thị theo L1', en: 'L1-specific graphs' } },
+      ],
+      page: PAGES + 'INTERSPEECH2026-MDD-LSSG/',
+      links: [
+        { type: 'paper', href: 'https://www.isca-archive.org/interspeech_2026/nguyen26g_interspeech.html', label: 'ISCA' },
+        { type: 'paper', href: 'https://arxiv.org/abs/2606.05569', label: 'arXiv' },
+      ],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'NCA2026-MoA-MDS',
+      areas: ['llm'], kind: 'paper', year: 2026,
+      venue: 'Neural Computing and Applications', note: { vi: 'Tạp chí Q1 · 2026', en: 'Q1 journal · 2026' },
+      title: {
+        vi: 'Khung Mixture-of-Agents không cần huấn luyện cho tóm tắt đa văn bản dựa trên LLM và đồ thị tri thức',
+        en: 'A Training-Free Mixture-of-Agents Framework for Multi-Document Summarization Using LLMs and Knowledge Graphs',
+      },
+      summary: {
+        vi: 'Ba agent LLM — trích xuất, đồ thị tri thức và trừu tượng — chạy song song rồi hợp nhất bằng cơ chế AMF; dẫn đầu trên 4 bộ dữ liệu Anh–Việt mà không cần huấn luyện.',
+        en: 'Three LLM agents — extractive, knowledge-graph and abstractive — run in parallel and are merged by AMF fusion; state of the art on 4 English–Vietnamese datasets without any training.',
+      },
+      metrics: [
+        { v: { vi: '55,0', en: '55.0' }, l: { vi: 'ROUGE-1 · Multi-News', en: 'ROUGE-1 · Multi-News' } },
+        { v: { vi: '80,1', en: '80.1' }, l: { vi: 'ROUGE-1 · VN-MDS', en: 'ROUGE-1 · VN-MDS' } },
+        { v: '0', l: { vi: 'epoch huấn luyện', en: 'training epochs' } },
+      ],
+      page: PAGES + 'NCA2026-MoA-MDS/',
+      links: [
+        { type: 'paper', href: 'https://doi.org/10.1007/s00521-026-12249-y', label: 'Springer' },
+        { type: 'paper', href: 'https://arxiv.org/abs/2606.03867', label: 'arXiv' },
+      ],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'ICML2026-Lean4-Audit',
+      areas: ['llm'], kind: 'paper', year: 2026,
+      award: { vi: 'Giải Nhì', en: '2nd place' }, awardGold: true,
+      venue: 'ICML 2026', note: 'AI for Math Workshop',
+      title: {
+        vi: 'Tự động kiểm chứng tương đồng ngữ nghĩa và phân loại lỗi cho hình thức hóa Lean 4 bằng kiểm toán dẫn hướng qua phân rã',
+        en: 'Automated Semantic Alignment Verification and Error Categorization of Lean 4 Formalizations via Decomposition-Guided Auditing',
+      },
+      summary: {
+        vi: 'Kiểm tra bản dịch sang Lean 4 của mệnh đề toán học có giữ đúng nghĩa không, định vị và sửa lỗi, phân loại theo 28 loại lỗi SCI. Đội VNPT AI đạt giải Nhì FormalRx Track 1.',
+        en: 'Checks whether a Lean 4 formalization keeps the meaning of an informal math statement, localizes and fixes errors, and classifies them into 28 SCI categories. The VNPT AI team won 2nd place in FormalRx Track 1.',
+      },
+      metrics: [
+        { v: { vi: '0,7327', en: '0.7327' }, l: 'Verdict F1' },
+        { v: { vi: '0,7671', en: '0.7671' }, l: { vi: 'độ chính xác bản sửa', en: 'correction accuracy' } },
+        { v: '28', l: { vi: 'loại lỗi SCI', en: 'SCI error types' } },
+      ],
+      page: PAGES + 'ICML2026-Lean4-Audit/',
+      links: [
+        { type: 'paper', href: 'https://openreview.net/forum?id=FqYFz767mp', label: 'OpenReview' },
+      ],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'AICITY2026_track3',
+      areas: ['vlm', 'traffic'], kind: 'paper', year: 2026, award: 'Top 3',
+      venue: 'ECCV 2026 Workshops', note: 'AI City Challenge · Track 3',
+      title: {
+        vi: 'Suy luận chuỗi dựa trên bằng chứng cho bài toán hiểu bất thường giao thông hợp nhất',
+        en: 'Evidence-Driven Chained Reasoning for Unified Traffic Anomaly Understanding',
+      },
+      summary: {
+        vi: 'Một mô hình Qwen3-VL-32B trả lời 10 loại câu hỏi trên cùng video sự cố; gom câu trả lời đóng tin cậy thành phiếu bằng chứng để chống “bịa” khi sinh văn bản. Top 3 bảng xếp hạng công khai.',
+        en: 'A single Qwen3-VL-32B answers ten question types on the same incident video; confident closed answers form an evidence sheet that keeps free-text answers grounded. Top 3 on the public leaderboard.',
+      },
+      metrics: [
+        { v: { vi: '0,6669', en: '0.6669' }, l: { vi: 'điểm trung bình', en: 'mean score' } },
+        { v: { vi: '+0,0739', en: '+0.0739' }, l: { vi: 'nhờ chuỗi suy luận', en: 'from inference chain' } },
+      ],
+      page: PAGES + 'AICITY2026_track3/',
+      links: [
+        { type: 'github', href: 'https://github.com/TruongDuy2607/AICity26-Track3-TAR', label: { vi: 'Mã nguồn của nhóm', en: 'Team code' } },
+      ],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'BMVC2026-SAT-Net',
+      areas: ['medical'], kind: 'paper', year: 2026,
+      venue: 'BMVC 2026', note: 'Lancaster',
+      title: {
+        vi: 'SAT-Net: Tinh chỉnh adapter nhận biết ngữ nghĩa cho đồng thời phân đoạn nhân giáp và phân loại ác tính',
+        en: 'SAT-Net: Semantic-Aware Adapter Tuning for Joint Thyroid Nodule Segmentation and Malignancy Classification',
+      },
+      summary: {
+        vi: 'Một mô hình vừa khoanh vùng nhân giáp vừa phân loại lành/ác tính trên ảnh siêu âm, gắn ngữ nghĩa văn bản cho từng vùng ảnh qua BGE và tinh chỉnh nhẹ bằng adapter.',
+        en: 'One model that both delineates thyroid nodules and classifies malignancy on ultrasound, attaching text semantics to image regions via BGE and tuning lightweight adapters.',
+      },
+      metrics: [
+        { v: { vi: '81,52%', en: '81.52%' }, l: { vi: 'IoU · ThyroidXL', en: 'IoU · ThyroidXL' } },
+        { v: { vi: '86,63%', en: '86.63%' }, l: { vi: 'độ chính xác phân loại', en: 'classification accuracy' } },
+      ],
+      page: PAGES + 'BMVC2026-SAT-Net/',
+      links: [
+        { type: 'paper', href: 'https://bmvc2026.bmva.org/programme/accepted_papers/', label: { vi: 'Danh sách BMVC', en: 'BMVC list' } },
+      ],
       stars: 0, forks: 0,
     },
     {
@@ -488,7 +608,7 @@
     },
     {
       name: 'AI-City-Challenge-2023',
-      areas: ['traffic'], kind: 'challenge',
+      areas: ['traffic'], kind: 'challenge', award: 'Top 3',
       venue: 'AI City Challenge 2023', note: 'Track 5',
       title: {
         vi: 'Phát hiện vi phạm mũ bảo hiểm của người đi xe máy với khung theo vết tùy biến và kỹ thuật phát hiện đối tượng tiên tiến',
@@ -505,18 +625,18 @@
   const I18N = {
     vi: {
       docTitle: 'VNPT AI — Nghiên cứu & Mã nguồn mở',
-      metaDesc: 'Tổng hợp các dự án nghiên cứu, bộ dữ liệu và mã nguồn mở của VNPT AI: xử lý tiếng nói, ảnh y tế và giao thông thông minh.',
+      metaDesc: 'Tổng hợp các dự án nghiên cứu, bộ dữ liệu và mã nguồn mở của VNPT AI: xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế và giao thông thông minh.',
       brandSub: 'Mã nguồn mở',
       navLabel: 'Điều hướng chính',
       navProjects: 'Dự án',
       langLabel: 'Ngôn ngữ',
       eyebrow: 'VNPT AI · Nghiên cứu & Mã nguồn mở',
       heroTitle: 'Nghiên cứu mở từ VNPT AI',
-      heroLead: 'Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ảnh y tế đến giao thông thông minh.',
+      heroLead: 'Mã nguồn, bộ dữ liệu và trang giới thiệu cho các công bố khoa học và giải pháp đạt giải tại AI City Challenge — trải rộng từ xử lý tiếng nói, ngôn ngữ và LLM, ảnh y tế đến giao thông thông minh.',
       ctaExplore: 'Khám phá dự án',
       statProjects: 'dự án mã nguồn mở',
       statTop1: 'giải nhất AI City Challenge',
-      statPapers: 'bài báo tại hội nghị quốc tế',
+      statPapers: 'công bố quốc tế năm 2026',
       statStars: 'lượt gắn sao trên GitHub',
       projectsTitle: 'Dự án',
       projectsSub: 'Chọn một dự án để mở trang giới thiệu chi tiết.',
@@ -535,18 +655,18 @@
     },
     en: {
       docTitle: 'VNPT AI — Research & Open Source',
-      metaDesc: 'Research projects, datasets and open-source code from VNPT AI: speech processing, medical imaging and intelligent transportation.',
+      metaDesc: 'Research projects, datasets and open-source code from VNPT AI: speech processing, language and LLMs, medical imaging and intelligent transportation.',
       brandSub: 'Open Source',
       navLabel: 'Main navigation',
       navProjects: 'Projects',
       langLabel: 'Language',
       eyebrow: 'VNPT AI · Research & Open Source',
       heroTitle: 'Open research from VNPT AI',
-      heroLead: 'Code, datasets and project pages behind our published research and award-winning AI City Challenge solutions — spanning speech processing, medical imaging and intelligent transportation.',
+      heroLead: 'Code, datasets and project pages behind our published research and award-winning AI City Challenge solutions — spanning speech processing, language and LLMs, medical imaging and intelligent transportation.',
       ctaExplore: 'Explore projects',
       statProjects: 'open-source projects',
       statTop1: 'AI City Challenge first places',
-      statPapers: 'international conference papers',
+      statPapers: 'international publications in 2026',
       statStars: 'GitHub stars',
       projectsTitle: 'Projects',
       projectsSub: 'Select a project to open its dedicated page.',
@@ -573,6 +693,7 @@
     medical: stroke('<path d="M12 4 4.6 17.2a16 16 0 0 0 14.8 0Z"/><path d="M8 11.2a9 9 0 0 0 8 0"/><circle cx="12" cy="15" r="1.3"/>'),
     traffic: stroke('<rect x="8" y="2.5" width="8" height="19" rx="3"/><circle cx="12" cy="7.2" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="16.8" r="1.5"/>'),
     vlm:     stroke('<path d="M4.5 4.5h15A1.5 1.5 0 0 1 21 6v9.5a1.5 1.5 0 0 1-1.5 1.5H11l-4.5 3.5V17h-2A1.5 1.5 0 0 1 3 15.5V6a1.5 1.5 0 0 1 1.5-1.5Z"/><path d="M7.5 10.75S9.3 8 12 8s4.5 2.75 4.5 2.75S14.7 13.5 12 13.5s-4.5-2.75-4.5-2.75Z"/><circle cx="12" cy="10.75" r="1"/>'),
+    llm:     stroke('<path d="M12 3.5l1.6 4.4 4.4 1.6-4.4 1.6L12 15.5l-1.6-4.4L6 9.5l4.4-1.6Z"/><path d="M18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8Z"/><path d="M5.5 15.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6Z"/>'),
     other:   stroke('<path d="m9 7-5 5 5 5M15 7l5 5-5 5"/>'),
     arrow:   stroke('<path d="M5 12h14M13 6l6 6-6 6"/>', 17),
     trophy:  stroke('<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M17 5.5h2.5V7a3 3 0 0 1-3 3M7 5.5H4.5V7a3 3 0 0 0 3 3"/>', 13),
@@ -615,7 +736,7 @@
     const id = 'repo-' + r.name.replace(/[^\w-]/g, '');
 
     const award = r.award
-      ? `<span class="award${r.award === 'Top 1' ? '' : ' minor'}">${ICON.trophy}${esc(r.award)}</span>`
+      ? `<span class="award${r.award === 'Top 1' || r.awardGold ? '' : ' minor'}">${ICON.trophy}${esc(tr(r.award))}</span>`
       : '';
 
     const metrics = (r.metrics || []).length
@@ -684,7 +805,7 @@
     const repos = visibleRepos();
     $('stat-projects').textContent = fmt(repos.length);
     $('stat-top1').textContent = fmt(repos.filter((r) => r.kind === 'challenge' && r.award === 'Top 1').length);
-    $('stat-papers').textContent = fmt(repos.filter((r) => r.kind === 'paper').length);
+    $('stat-papers').textContent = fmt(repos.filter((r) => r.year === 2026).length);
     $('stat-stars').textContent = fmt(repos.reduce((s, r) => s + (r.stars || 0), 0));
   }
 
