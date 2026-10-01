@@ -337,9 +337,9 @@
         </a>
       </div>
       <dl class="stats" id="stats">
-        <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">7</dd></div>
+        <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">16</dd></div>
         <div class="stat"><dt data-i18n="statTop1">giải nhất AI City Challenge</dt><dd id="stat-top1">2</dd></div>
-        <div class="stat"><dt data-i18n="statPapers">công bố quốc tế năm 2026</dt><dd id="stat-papers">6</dd></div>
+        <div class="stat"><dt data-i18n="statPapers">công bố quốc tế năm 2026</dt><dd id="stat-papers">8</dd></div>
         <div class="stat"><dt data-i18n="statStars">lượt gắn sao trên GitHub</dt><dd id="stat-stars">27</dd></div>
       </dl>
       <div class="partners">
@@ -457,7 +457,7 @@
     other:   { vi: 'Khác',                   en: 'Other' },
   };
 
-  // Ảnh chụp dữ liệu GitHub ngày 30/09/2026; stars/forks/trang dự án được làm mới trực tiếp khi tải trang.
+  // Ảnh chụp dữ liệu GitHub ngày 01/10/2026; stars/forks/trang dự án được làm mới trực tiếp khi tải trang.
   const REPOS = [
     {
       name: 'ICASSP2026-MDD',
@@ -526,6 +526,46 @@
         { type: 'paper', href: 'https://doi.org/10.1007/s00521-026-12249-y', label: 'Springer' },
         { type: 'paper', href: 'https://arxiv.org/abs/2606.03867', label: 'arXiv' },
       ],
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'JSC2026-AutoDP-LLM',
+      areas: ['llm'], kind: 'paper', year: 2026,
+      venue: 'The Journal of Supercomputing', note: '2026',
+      title: {
+        vi: 'AutoDP-LLM: Tự động hóa tiền xử lý dữ liệu cho hệ thống phát hiện xâm nhập bằng mô hình ngôn ngữ lớn',
+        en: 'AutoDP-LLM: Automating Data Pre-processing for Intrusion Detection Systems using Large Language Models',
+      },
+      summary: {
+        vi: 'Các agent LLM chuyên biệt tự sinh, kiểm chứng và sửa pipeline tiền xử lý cho IDS; tập đặc trưng được quyết định từ bằng chứng ngữ nghĩa và thống kê thay vì đặt trước một số lượng cố định.',
+        en: 'Specialized LLM agents generate, validate and repair executable IDS pre-processing pipelines, with retained features determined by semantic and statistical evidence rather than a fixed budget.',
+      },
+      metrics: [
+        { v: { vi: '78,41%', en: '78.41%' }, l: { vi: 'Weighted F1 · UNSW-NB15', en: 'Weighted F1 · UNSW-NB15' } },
+        { v: { vi: '76,38%', en: '76.38%' }, l: { vi: 'Weighted F1 · NSL-KDD', en: 'Weighted F1 · NSL-KDD' } },
+        { v: { vi: '26–28', en: '26–28' }, l: { vi: 'đặc trưng · UNSW-NB15', en: 'features · UNSW-NB15' } },
+      ],
+      page: PAGES + 'JSC2026-AutoDP-LLM/',
+      stars: 0, forks: 0,
+    },
+    {
+      name: 'ICDM2026-MDEF',
+      areas: ['medical', 'vlm'], kind: 'paper', year: 2026,
+      venue: 'ICDM 2026', note: 'Medical AI',
+      title: {
+        vi: 'MDEF: Hợp nhất ensemble sâu đa báo cáo cho sinh báo cáo CT 3D',
+        en: 'MDEF: Multi-Report Deep Ensemble Fusion for 3D CT Report Generation',
+      },
+      summary: {
+        vi: 'Ba bộ sinh báo cáo dùng bộ mã hóa ảnh 3D kết hợp LLM lấy mẫu nhiều báo cáo; RadBERT trích xuất 18 bệnh lý và hợp nhất logic OR để giảm bỏ sót trên RadGenome, CT-RATE và INSPECT.',
+        en: 'Three 3D vision–LLM report generators sample multiple reports; RadBERT extracts 18 pathologies and logical-OR fusion reduces omissions across RadGenome, CT-RATE and INSPECT.',
+      },
+      metrics: [
+        { v: '0.3999', l: { vi: 'CE F1 · RadGenome', en: 'CE F1 · RadGenome' } },
+        { v: '0.3381', l: { vi: 'CE F1 · CT-RATE', en: 'CE F1 · CT-RATE' } },
+        { v: { vi: '+70–97%', en: '+70–97%' }, l: { vi: 'recall tương đối', en: 'relative recall' } },
+      ],
+      page: PAGES + 'ICDM2026-MDEF/',
       stars: 0, forks: 0,
     },
     {
@@ -769,7 +809,7 @@
       count: (n, total) => n === total ? `${total} dự án` : `${n} / ${total} dự án`,
       openPage: 'Xem trang dự án',
       openCode: 'Xem mã nguồn',
-      code: 'Mã nguồn',
+      code: 'GitHub',
       stars: 'lượt gắn sao',
       forks: 'lượt fork',
       openSource: 'Mã nguồn mở',
@@ -810,7 +850,7 @@
       count: (n, total) => n === total ? `${total} projects` : `${n} of ${total} projects`,
       openPage: 'View project page',
       openCode: 'View source code',
-      code: 'Code',
+      code: 'GitHub',
       stars: 'stars',
       forks: 'forks',
       openSource: 'Open source',
