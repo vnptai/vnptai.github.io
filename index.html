@@ -388,9 +388,9 @@ section .fig-icon[class*="text-"]{color:#0047BB!important}
       <div>
         <h2 id="band-title" data-i18n="bandTitle">Nghiên cứu cùng các trường đại học và bệnh viện hàng đầu</h2>
         <dl class="stats" id="stats">
-          <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">16</dd></div>
+          <div class="stat"><dt data-i18n="statProjects">dự án mã nguồn mở</dt><dd id="stat-projects">17</dd></div>
           <div class="stat"><dt data-i18n="statTop1">giải nhất AI City Challenge</dt><dd id="stat-top1">2</dd></div>
-          <div class="stat"><dt data-i18n="statPapers">công bố quốc tế năm 2026</dt><dd id="stat-papers">8</dd></div>
+          <div class="stat"><dt data-i18n="statPapers">công bố quốc tế năm 2026</dt><dd id="stat-papers">9</dd></div>
         </dl>
         <p class="partners-label" id="partners-title" data-i18n="partnersTitle">Đơn vị hợp tác nghiên cứu</p>
         <ul class="partner-grid" aria-labelledby="partners-title">
@@ -478,6 +478,26 @@ section .fig-icon[class*="text-"]{color:#0047BB!important}
 
   // Ảnh chụp dữ liệu GitHub ngày 01/10/2026; stars/forks/trang dự án được làm mới trực tiếp khi tải trang.
   const REPOS = [
+    {
+      name: 'WACV_diversified_unlearning',
+      areas: ['vlm'], kind: 'paper', year: 2026,
+      venue: 'IEEE/CVF WACV', note: { vi: 'Hội nghị · 2027', en: 'Conference · 2027' },
+      title: {
+        vi: 'Học quên theo ngữ cảnh: Căn chỉnh tương phản qua giám sát đa dạng cho mô hình khuếch tán',
+        en: 'Unlearn in Context: Contrastive Alignment via Diversified Supervision for Diffusion Models',
+      },
+      summary: {
+        vi: 'Diversified Unlearning — add-on nhẹ giúp mô hình text-to-image quên một khái niệm qua những ngữ cảnh đi cùng nó, xoá hiệu quả hơn, ít quên nhầm hơn và bền vững hơn trước tấn công khôi phục.',
+        en: 'Diversified Unlearning — a lightweight add-on that makes text-to-image models unlearn a concept through the context it keeps: stronger erasure, less collateral forgetting and better robustness to recovery attacks.',
+      },
+      metrics: [
+        { v: '37/6/7', l: { vi: 'thắng/hoà/thua (50 so sánh)', en: 'W/T/L (50 comparisons)' } },
+        { v: '~50%', l: { vi: 'GPT-Score giảm khi xoá (ESD, AP)', en: 'lower GPT-Score (ESD, AP)' } },
+        { v: '10', l: { vi: 'phương pháp học quên', en: 'unlearning methods' } },
+      ],
+      page: PAGES + 'WACV_diversified_unlearning/',
+      stars: 0, forks: 0,
+    },
     {
       name: 'ICASSP2026-MDD',
       areas: ['speech'], kind: 'paper', year: 2026,
